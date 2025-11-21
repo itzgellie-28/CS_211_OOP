@@ -1,32 +1,42 @@
-class Vehicle:
-    def __init__(self, brand):
-        self.brand = brand
+class Vehicle {
+    String brand;
 
-    def start(self):
-        print("Vehicle is starting...")
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
 
+class Car extends Vehicle {
+    String model;
+    int doors;
+    String ownerName;
+    double fuelCapacity;
+    String color;       // New attribute
+    boolean isElectric; // New attribute
 
-class Car(Vehicle):
-    def __init__(self, brand, model, owner_name, doors, fuel_capacity, color, is_electric):
-        super().__init__(brand)
-        self.model = model
-        self.owner_name = owner_name
-        self.doors = doors
-        self.fuel_capacity = fuel_capacity
-        self.color = color
-        self.is_electric = is_electric
+    void displayInfo() {
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Owner: " + ownerName);
+        System.out.println("Doors: " + doors);
+        System.out.println("Fuel Capacity: " + fuelCapacity + " liters");
+        System.out.println("Color: " + color);
+        System.out.println("Electric: " + (isElectric ? "Yes" : "No"));
+    }
+}
 
-    def display_info(self):
-        print(f"Brand: {self.brand}")
-        print(f"Model: {self.model}")
-        print(f"Owner: {self.owner_name}")
-        print(f"Doors: {self.doors}")
-        print(f"Fuel Capacity: {self.fuel_capacity} liters")
-        print(f"Color: {self.color}")
-        print(f"Electric: {'Yes' if self.is_electric else 'No'}")
+public class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car();
+        myCar.brand = "Tesla";
+        myCar.model = "Model S";
+        myCar.ownerName = "Angel Fhey Cataros";
+        myCar.doors = 4;
+        myCar.fuelCapacity = 100;  // Battery equivalent in kWh
+        myCar.color = "White";
+        myCar.isElectric = true;
 
-
-# Example usage
-my_car = Car("Tesla", "Model S", "Angel Fhey Cataros", 4, 100, "White", True)
-my_car.start()
-my_car.display_info()
+        myCar.start();
+        myCar.displayInfo();
+    }
+}
